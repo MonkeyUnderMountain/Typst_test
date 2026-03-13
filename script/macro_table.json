@@ -1,0 +1,200 @@
+{
+  "custom_macros": {
+    "kk": {
+      "xelatex": "\\mathbf{k}",
+      "pdflatex": "\\mathbf{k}",
+      "typst": "math.bold(\"k\")"
+    },
+    "kkk": {
+      "xelatex": "\\mathbb{k}",
+      "pdflatex": "\\mathbbm{k}",
+      "typst": "math.bb(\"k\")"
+    },
+    "rkk": {
+      "xelatex": "\\kappa",
+      "pdflatex": "\\kappa",
+      "typst": "math.kappa"
+    },
+    "fkk": {
+      "xelatex": "\\mathscr{K}",
+      "pdflatex": "\\mathscr{K}",
+      "typst": "math.scr(\"K\")"
+    },
+    "im": {
+      "xelatex": "\\sqrt{-1}",
+      "pdflatex": "\\sqrt{-1}",
+      "typst": "math.sqrt(\"-1\")"
+    },
+    "ten": {
+      "xelatex": "\\otimes",
+      "pdflatex": "\\otimes",
+      "typst": "math.times.o"
+    },
+    "tensor": {
+      "xelatex": "\\otimes",
+      "pdflatex": "\\otimes",
+      "typst": "math.times.o"
+    },
+    "injmap": {
+      "xelatex": "\\hookrightarrow",
+      "pdflatex": "\\hookrightarrow",
+      "typst": "math.arrow.r.hook"
+    },
+    "surjmap": {
+      "xelatex": "\\twoheadrightarrow",
+      "pdflatex": "\\twoheadrightarrow",
+      "typst": "math.arrow.r.twohead"
+    },
+    "ratmap": {
+      "xelatex": "\\dashrightarrow",
+      "pdflatex": "\\dashrightarrow",
+      "typst": "math.arrow.r.dashed"
+    },
+    "colim": {
+      "xelatex": "\\operatorname{colim}",
+      "pdflatex": "\\operatorname{colim}",
+      "typst": "math.op.colim"
+    },
+    "acts": {
+      "xelatex": "\\curvearrowright",
+      "pdflatex": "\\curvearrowright",
+      "typst": "math.arrow.r.curve"
+    },
+    "isom": {
+      "xelatex": "\\xrightarrow{\\equiv}",
+      "pdflatex": "\\xrightarrow{\\equiv}",
+      "typst": "math.tilde.equiv"
+    }
+  },
+  "categories": {
+    "Set": "Set",
+    "Var": "Var",
+    "Sch": "Sch",
+    "sch": "sch",
+    "Av": "Av",
+    "Alg": "Alg",
+    "Ring": "Ring",
+    "Mod": "Mod",
+    "module": "mod",
+    "TopMod": "TopMod",
+    "Banmod": "Banmod",
+    "Vect": "Vect",
+    "vect": "vect",
+    "Grp": "Grp",
+    "Grpd": "Grpd",
+    "Ab": "Ab",
+    "Top": "Top",
+    "Open": "Open",
+    "Shv": "Shv",
+    "PShv": "PShv",
+    "QCoh": "QCoh",
+    "Coh": "Coh",
+    "Cat": "Cat",
+    "AlgSp": "AlgSp",
+    "AlgGrp": "AlgGrp"
+  },
+  "up_operators": {
+    "real": "Re",
+    "image": "Im",
+    "id": "id",
+    "vol": "vol",
+    "length": "length",
+    "Length": "Length",
+    "disc": "disc",
+    "gr": "gr",
+    "pr": "pr",
+    "Frob": "Frob",
+    "Gal": "Gal",
+    "Nm": "Nm",
+    "Spec": "Spec",
+    "mSpec": "mSpec",
+    "Proj": "Proj",
+    "CH": "CH",
+    "Obj": "Obj",
+    "Fun": "Fun",
+    "Mor": "Mor",
+    "res": "res",
+    "Res": "Res",
+    "Ext": "Ext",
+    "Tor": "Tor",
+    "Hom": "Hom",
+    "Eq": "Eq",
+    "cohdim": "coh.dim",
+    "hldim": "hl.dim",
+    "projdim": "proj.dim",
+    "injdim": "inj.dim",
+    "depth": "depth",
+    "idealht": "idealht",
+    "codim": "codim",
+    "Supp": "Supp",
+    "trdeg": "trdeg",
+    "Ass": "Ass",
+    "Ann": "Ann",
+    "Der": "Der",
+    "Frac": "Frac",
+    "Mult": "Mult",
+    "nilp": "nil",
+    "characteristic": "char",
+    "Pic": "Pic",
+    "NS": "NS",
+    "Exc": "Exc",
+    "Sing": "Sing",
+    "Bl": "Bl",
+    "Reg": "Reg",
+    "Psef": "Psef",
+    "Nef": "Nef",
+    "Eff": "Eff",
+    "Mov": "Mov",
+    "Amp": "Amp",
+    "Bigcone": "Big",
+    "Bs": "Bs",
+    "Stab": "Stab",
+    "Cone": "Cone",
+    "Div": "Div",
+    "WDiv": "WDiv",
+    "CaDiv": "CaDiv",
+    "divisor": "div",
+    "Cl": "Cl",
+    "CaCl": "CaCl",
+    "WCl": "WCl",
+    "Bir": "Bir",
+    "GL": "GL",
+    "SO": "SO",
+    "PGL": "PGL",
+    "SL": "SL",
+    "Spin": "Spin",
+    "PSL": "PSL",
+    "Sp": "Sp",
+    "SU": "SU",
+    "Gr": "Gr",
+    "ad": "ad",
+    "Ad": "Ad",
+    "Lie": "Lie",
+    "diag": "diag",
+    "Ker": "Ker",
+    "Coker": "Coker",
+    "coker": "coker",
+    "ord": "ord",
+    "rank": "rank",
+    "tr": "tr",
+    "Tr": "Tr",
+    "Aut": "Aut",
+    "End": "End",
+    "Sym": "Sym",
+    "Qnil": "Qnil",
+    "Red": "Red",
+    "Int": "Int"
+  },
+  "frak_operators": {
+    "Hilb": "Hilb",
+    "Grass": "Grass"
+  },
+  "cal_operators": {
+    "calHom": "calHom",
+    "calMor": "calMor"
+  },
+  "text_macros": {
+    "an": "an",
+    "op": "op"
+  }
+}
