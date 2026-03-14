@@ -13,7 +13,7 @@
   version: "1.0.0",
 )
 
-#show: no-ref
+// #show: no-ref
 // = title
 // #outline()
 
@@ -114,28 +114,45 @@ Test the ref to the slogan, it is @slogan:math.
 
 Here we test the ref to the case, it is @case:trivial-quotient 2.
 
-Here we test a ref to nothing, it is @case:nonexistent.
+// Here we test a ref to nothing, it is @case:nonexistent.
 
 #theorem[
   In this theorem, we draw the Castersion diagram of the fiber product of two morphisms $f: X -> Z$ and $g: Y -> Z$ in the category of schemes. The diagram is as follows:
-  #align(center)[
-    #commutative-diagram(
-      node((1,1),$W$),
-      node((2,2), $X times_Z Y$),
-      node((3,2), $Y$),
-      node((2,3), $X$),
-      node((3,3), $X$),
+  // #align(center)[
+  //   #commutative-diagram(
+  //     node((1,1),$W$),
+  //     node((2,2), $X times_Z Y$),
+  //     node((3,2), $Y$),
+  //     node((2,3), $X$),
+  //     node((3,3), $X$),
       
-      arr((1,1),(2,2), $exists !$),
-      arr((2,2),(3,2), $p_2$, label-pos: right),
-      arr((2,2),(2,3), $p_1$,),
-      arr((3,2),(3,3), $g$),
-      arr((2,3),(3,3), $f$),
-      arr((1,1),(2,3), $h$, label-offset: (0, 2pt)),
-      arr((1,1),(3,2), $k$, label-offset: (0, -2pt)),
-    )
-  ]
+  //     arr((1,1),(2,2), $exists !$),
+  //     arr((2,2),(3,2), $p_2$, label-pos: right),
+  //     arr((2,2),(2,3), $p_1$,),
+  //     arr((3,2),(3,3), $g$),
+  //     arr((2,3),(3,3), $f$),
+  //     arr((1,1),(2,3), $h$, label-offset: (0, 2pt)),
+  //     arr((1,1),(3,2), $k$, label-offset: (0, -2pt)),
+  //   )
+  // ]
+  #align(center)[
+  #diagram(
+    node((1,1),$W$),
+    node((2,2), $X times_Z Y$),
+    node((3,2), $Y$),
+    node((2,3), $X$),
+    node((3,3), $X$),
+    
+    edge((1,1),(2,2), $exists !$, "->"),
+    edge((2,2),(3,2), $p_2$),
+    edge((2,2),(2,3), $p_1$,),
+    edge((3,2),(3,3), $g$),
+    edge((2,3),(3,3), $f$),
+    edge((1,1),(2,3), $h$, bend: -20deg, label-side: right, ),
+    edge((1,1),(3,2), $k$, "->", bend: 20deg, label-side: left, ),
+  )]
   Then I can say that $f:X to Y$.
+  There $exists$ a unique morphism.
 ]
 
 
@@ -152,5 +169,9 @@ Let me test @Stacks and  @Har77.
 + it has no support for the symbol "\\varprolim".
 
 
+Here we test the ref @Har77[Theorem 3.1] and @Stacks. 
+Test many guys @BDPP12,
 
-#bibliography("ref.bib", style: "ieee")
+And @MZg23 and @Xie25SpectrumOfCones and @MZ23a and @MZ23b.
+
+#bibliography("ref.bib", style: "chicago-author-date_modified.csl")

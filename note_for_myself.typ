@@ -171,7 +171,9 @@
 // ---------------------------------------------------------------------------------
 // The package `commute` is used to draw commutative diagrams, 
 //-----------------------------------------------------------------------------------
-#import "@preview/commute:0.3.0": node, arr, commutative-diagram
+// #import "@preview/commute:0.3.0": node, arr, commutative-diagram
+// #import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
+#import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
 
 
 
@@ -312,9 +314,9 @@
   ref_color: rgb("#C00040"),
   heading_ref_color: rgb("#005F73"),
   equation_ref_color: rgb("#AE2012"),
-  cite_color: rgb("#6D597A"),
-  external_link_color: rgb("#0A66C2"),
-  internal_link_color: rgb("#0077B6"),
+  cite_color: rgb("#428ae7"),
+  external_link_color: rgb("#f851e7"),
+  internal_link_color: rgb("#1803ff"),
 ) = {
   // Make theorem figure styling active at the document level via the class wrapper.
   show: thmrules.with(qed-symbol: $square$)
@@ -538,7 +540,7 @@
 
 
   // make the / symbol become the original slash in math mode, instead of a fraction formula. This is useful when you want to write something like "G/H" without it being interpreted as a fraction.
-  show math.frac: it => [#it.num #sym.slash #it.denom]
+  // show math.frac: it => [#it.num #sym.slash #it.denom]
 
 
 
