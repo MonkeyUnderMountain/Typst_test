@@ -17,7 +17,7 @@
 // = title
 // #outline()
 
-
+// #section[Introduction]
 == Introduction
 
 This is the Typst version of the original LaTeX `template_section.tex`.

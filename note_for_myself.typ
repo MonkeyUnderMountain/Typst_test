@@ -7,165 +7,7 @@
 // theorem-like environments and proof environments
 //---------------------------------------------------------------------------------
 // the package `ctheorems` is used to create theorem-like environments with custom styling
-#import "@preview/ctheorems:1.1.3": *
-
-// Define a helper function to create your specific box style
-#let my-thm(name, color) = thmbox(
-  "theorem", 
-  name,
-  base: none,
-  fill: color.lighten(90%),
-  stroke: (
-    left: 2pt + color,
-    top: none,
-    right: none,
-    bottom: none,
-  ),
-  inset: (top: 6pt, left: 8pt, right: 8pt, bottom: 6pt),                  // The "left" and "right" padding
-  radius: 0pt,                 // Sharp corners
-  padding: (top: 0em, bottom: 0em),
-  breakable: true,
-  supplement: name
-)
-// Define a helper function for plain styled environments without background fill
-#let my-plain-thm(name, color) = thmbox(
-  "theorem", 
-  name,
-  base: none,
-  fill: none,
-  stroke: (
-    left: 2pt + color,
-    top: none,
-    right: none,
-    bottom: none,
-  ),  
-  inset: (
-    top: 3pt,
-    bottom: 3pt,
-    left: 8pt,
-    right: 8pt,
-  ),
-  // radius: 0pt,                 // Sharp corners
-  padding: (top: 0em, bottom: 0em),
-  breakable: true,
-  supplement: name
-)
-// define specific theorem-like environments with different colors
-#let definition = my-thm("Definition", blue)
-#let proposition = my-thm("Proposition", rgb("#C00040"))
-#let theorem = my-thm("Theorem", red)
-#let lemma = my-thm("Lemma", orange)
-#let corollary = my-thm("Corollary", rgb("#FF00FF"))
-#let conjecture = my-thm("Conjecture", rgb("#EE82EE"))
-#let question = my-thm("Question", rgb("#D8BFD8"))
-// define plain styled environments without background fill
-#let remark = my-plain-thm("Remark", rgb("#808000"))
-#let claim = my-plain-thm("Claim", orange)
-#let example = my-plain-thm("Example", green)
-#let exercise = my-plain-thm("Exercise", rgb("#008080"))
-#let construction = my-plain-thm("Construction", rgb("#0000FF"))
-#let notation = my-plain-thm("Notation", rgb("#191970"))
-
-// the slogan environment is a special case with custom formatting
-#let slogan = thmbox(
-  "slogan",
-  "Slogan",
-  fill: green.lighten(90%),
-  stroke: 2pt + green,
-  radius: 0pt,
-  inset: 8pt,
-  padding: (top: 0pt, bottom: 0pt),
-  bodyfmt: x => emph(x),
-  titlefmt: _ => strong("Slogan"),
-)
-
-// the `thmproof` environment is used for proofs, with a flexible label and a QED symbol at the end
-#let _styled_proof(label) = thmproof(
-  "proof",
-  label,
-  padding: (top: 0pt, bottom: 0pt),
-  inset: (top: 3pt, left: 8pt, right: 8pt, bottom: 3pt),
-  breakable: true,
-  stroke: (
-    left: 2pt + rgb("#A7C8C9"),
-    top: none,
-    right: none,
-    bottom: none,
-  ),
-)
-#let proof(..args) = {
-  let pos = args.pos()
-  if pos.len() == 1 and type(pos.at(0)) == content {
-    _styled_proof("Proof")(pos.at(0))
-  } else if pos.len() == 2 and type(pos.at(0)) == str and type(pos.at(1)) == content {
-    _styled_proof(pos.at(0))(pos.at(1))
-  } else {
-    panic("Use #proof[...] or #proof(\"Label\")[...]")
-  }
-}
-
-// Step and Case environment with a reset-able counter and reset function
-#let no_num(..args) = []
-#let step_counter = counter("step")
-#let step_reset() = {
-  step_counter.update(0)
-}
-#let step(body) = thmbox(
-  "step",
-  [#step_counter.step()
-    #context {"Step " + step_counter.display()}],
-  base: none,
-  stroke: (
-    left: 2pt + orange,
-    top: none,
-    right: none,
-    bottom: none,
-  ),
-  inset: (
-    top: 3pt,
-    bottom: 3pt,
-    left: 8pt,
-    right: 8pt,
-  ),
-  padding: (top: 0em, bottom: 0em),
-  breakable: true,
-  supplement: "Step",
-).with(
-  numbering: none,
-  refnumbering: no_num,
-)(body)
-
-#let case_counter = counter("case")
-#let case_reset() = {
-  case_counter.update(0)
-}
-#let case(body) = thmbox(
-  "case",
-  [#case_counter.step()
-    #context {"Case " + case_counter.display()}],
-  base: none,
-  stroke: (
-    left: 2pt + orange,
-    top: none,
-    right: none,
-    bottom: none,
-  ),
-  inset: (
-    top: 3pt,
-    bottom: 3pt,
-    left: 8pt,
-    right: 8pt,
-  ),
-  padding: (top: 0em, bottom: 0em),
-  breakable: true,
-  supplement: "Case",
-).with(
-  numbering: none,
-  refnumbering: no_num,
-)(body)
-
-
-
+#import "theorems.typ": *
 
 
 // ---------------------------------------------------------------------------------
@@ -268,13 +110,53 @@
 
 //---------------------------------------------------------------------------------
 // for bib management, to be completed in the future
-
-
-
 #let no-ref(it) = {
   show ref: _ => [[?]]
   it
 }
+
+
+
+
+
+
+
+
+
+
+//---------------------------------------------------------------------------------
+
+
+
+// #let section(content) = {
+//     if section_level == "book" {
+//       heading(content, level: 2)
+//     } else if section_level == "chapter" {
+//       heading(content, level: 1)
+//     } else if section_level == "section" {
+//       heading(content, level: 1)
+//     } else {
+//       heading(content, level: 1)
+//     }
+//   }
+// #let subsection(content) = {
+//     if section_level == "book" {
+//       heading(content, level: 3)
+//     } else if section_level == "chapter" {
+//       heading(content, level: 2)
+//     } else if section_level == "section" {
+//       heading(content, level: 2)
+//     } else {
+//       heading(content, level: 2)
+//     }
+//   }
+// #let chapter(content) = {
+//     if section_level == "book" {
+//       heading(content, level: 1)
+//     } 
+//   }
+
+
 
 
 
@@ -363,13 +245,17 @@
 
 
 
-  // Section heading customization (compute sizes first to avoid `set` inside `if`):
-  let heading_size_1 = if section_level == "book" or section_level == "chapter" or section_level == "section" {2.1em} 
-    else {1.728em}
-  let heading_size_2 = if section_level == "book" or section_level == "chapter" or section_level == "section" {1.728em} 
+  // Section heading customization 
+  let heading_size_1 = if section_level == "book" {2.1em} 
+    else if section_level == "chapter" or section_level == "section" {1.44em}
     else {1.44em}
-  let heading_size_3 = if section_level == "book" or section_level == "chapter" or section_level == "section" {1.44em} 
+  let heading_size_2 = if section_level == "book" {1.44em}
+    else if section_level == "chapter" or section_level == "section" {1.2em} 
     else {1.2em}
+  let heading_size_3 = if section_level == "book" {1.2em} 
+    else if section_level == "chapter" or section_level == "section" {1.1em}
+    else {1.1em}
+
   show heading.where(level: 1): set text(
     size: heading_size_1,
     weight: "bold",
@@ -397,20 +283,12 @@
         none
       }
     }
-  } else if section_level == "chapter" {
-    (..nums) => {
-      let parts = nums.pos()
-      if parts.len() == 2 {
-        numbering("1.", parts.last())
-      } else if parts.len() == 3 {
-        none
-      }
-    }
   } else {
     "1."
   }
   set heading(numbering: heading_numbering, hanging-indent: 0em)
 
+  // define latex-like sectioning commands for user convenience, which will be mapped to the appropriate heading levels based on the `section_level` setting
 
 
 
